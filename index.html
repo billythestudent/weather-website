@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        Weather App - Activity Recommender
+        
+        A modern web application that displays real-time weather data 
+        and recommends activities based on current conditions.
+        
+        Files:
+        - index.html: Page structure
+        - style.css: Styling and responsive design
+        - script.js: Functionality and API interactions
+        
+        Required: OpenWeatherMap API key (configure in script.js)
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background"></div>
+    
+    <div class="main-wrapper">
+        <div class="button-container">
+            <button id="getLocationBtn" class="get-location-btn">
+                📍 Find My Location
+            </button>
+            <div id="locationError" class="error-message"></div>
+        </div>
+
+        <div id="weatherCard" class="weather-card" style="display: none;">
+            <!-- Main Weather Section -->
+            <div class="weather-main-section">
+                <div class="weather-icon-large">
+                    <img id="weatherIcon" src="" alt="Weather icon">
+                </div>
+                
+                <div class="weather-center">
+                    <div class="temperature-display">
+                        <span id="temperature" class="temp-value">--</span>
+                        <span class="temp-unit">°</span>
+                    </div>
+                    <p id="description" class="weather-description"></p>
+                    <p id="cityName" class="city-name"></p>
+                </div>
+
+                <div class="weather-side-info">
+                    <div class="info-item">
+                        <span class="label">Wind</span>
+                        <span id="windSpeed" class="value">--</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Humidity</span>
+                        <span id="humidity" class="value">--%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Details -->
+            <div class="weather-details-section">
+                <div class="detail-card">
+                    <span class="detail-icon">🌡️</span>
+                    <span class="detail-label">Feels Like</span>
+                    <span id="feelsLike" class="detail-value">--°C</span>
+                </div>
+                <div class="detail-card">
+                    <span class="detail-icon">🌪️</span>
+                    <span class="detail-label">Pressure</span>
+                    <span id="pressure" class="detail-value">--</span>
+                </div>
+                <div class="detail-card">
+                    <span class="detail-icon">👁️</span>
+                    <span class="detail-label">Visibility</span>
+                    <span id="visibility" class="detail-value">--</span>
+                </div>
+                <div class="detail-card">
+                    <span class="detail-icon">☁️</span>
+                    <span class="detail-label">Clouds</span>
+                    <span id="clouds" class="detail-value">--%</span>
+                </div>
+            </div>
+
+            <!-- 5-Day Forecast -->
+            <div class="forecast-section">
+                <div id="forecastList" class="forecast-list"></div>
+            </div>
+
+            <!-- Activity Suggestions -->
+            <div class="activity-section">
+                <h3>💡 Recommended Activities</h3>
+                <div id="activityList" class="activity-list"></div>
+            </div>
+        </div>
+
+        <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
